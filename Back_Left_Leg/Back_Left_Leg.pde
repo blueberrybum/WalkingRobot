@@ -1,7 +1,7 @@
 import spacebrew.*;
 
 String server="sandbox.spacebrew.cc";
-String name="Muffin Man";
+String name="Back Left";
 String description ="";
 
 int ball = 360;

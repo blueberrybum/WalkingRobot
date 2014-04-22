@@ -58,9 +58,9 @@ void onBooleanMessage( String name, boolean value ){
     arduino.servoWrite(11, constrain(360, 0, 180));
   }
    if(name.equals("back_right") && value == true){
-     arduino.servoWrite(10, constrain(0, 0, 180)); 
+     arduino.servoWrite(10, constrain(360, 0, 180)); 
   } else{
-    arduino.servoWrite(10, constrain(360, 0, 180));
+    arduino.servoWrite(10, constrain(0, 0, 180));
   }
     
 }

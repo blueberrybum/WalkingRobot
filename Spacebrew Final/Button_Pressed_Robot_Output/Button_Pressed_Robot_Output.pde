@@ -18,7 +18,7 @@ void setup() {
   
   sb = new Spacebrew( this );
    sb.connect(server, name, description );
-   arduino = new Arduino(this, "/dev/tty.usbmodem1421", 57600);
+   arduino = new Arduino(this, "/dev/tty.usbmodem1411", 57600);
 
   sb.addPublish( "button_pressed", "boolean", true ); 
 
@@ -43,14 +43,14 @@ void draw() {
 void onBooleanMessage( String name, boolean value ){
   println("got bool message " + name + " : " + value);
   if(name.equals("back_left") && value == true){
-   arduino.servoWrite(9, constrain(0, 0, 180)); 
+   arduino.servoWrite(6, constrain(360, 0, 180)); 
   } else{
-    arduino.servoWrite(9, constrain(360, 0, 180));
+    arduino.servoWrite(6, constrain(0, 50, 180));
   }
   if(name.equals("front_left") && value == true){
-     arduino.servoWrite(6, constrain(360, 0, 180)); 
+     arduino.servoWrite(10, constrain(360, 0, 180)); 
   } else{
-    arduino.servoWrite(6, constrain(0, 0, 180));
+    arduino.servoWrite(10, constrain(0, 0, 180));
   }
     if(name.equals("front_right") && value == true){
      arduino.servoWrite(11, constrain(0, 0, 180)); 
@@ -58,9 +58,9 @@ void onBooleanMessage( String name, boolean value ){
     arduino.servoWrite(11, constrain(360, 0, 180));
   }
    if(name.equals("back_right") && value == true){
-     arduino.servoWrite(10, constrain(0, 0, 180)); 
+     arduino.servoWrite(9, constrain(0, 50, 180)); 
   } else{
-    arduino.servoWrite(10, constrain(360, 0, 180));
+    arduino.servoWrite(9, constrain(360, 0, 180));
   }
     
 }
